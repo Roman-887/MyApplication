@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="button_weather">Weather</string>
+    <string name="button_list">List</string>
+    <string name="button_select_photo">Select Photo</string>
+    <string name="button_take_photo">Take Photo</string>
+
+    <string name="temperature_text">Погода в %1$s: %2$s, температура: %3$.1f°C</string>
+
+</resources>
