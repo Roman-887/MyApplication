@@ -1,0 +1,153 @@
+warning: in the working copy of 'app/build.gradle.kts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/myapplication/MainActivity.kt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_main.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'gradle/libs.versions.toml', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..44ca2d9[m
+[1m--- /dev/null[m
+[1m+++ b/.idea/inspectionProfiles/Project_Default.xml[m
+[36m@@ -0,0 +1,41 @@[m
+[32m+[m[32m<component name="InspectionProjectProfileManager">[m
+[32m+[m[32m  <profile version="1.0">[m
+[32m+[m[32m    <option name="myName" value="Project Default" />[m
+[32m+[m[32m    <inspection_tool class="PreviewAnnotationInFunctionWithParameters" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewApiLevelMustBeValid" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewDimensionRespectsLimit" enabled="true" level="WARNING" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewFontScaleMustBeGreaterThanZero" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewMultipleParameterProviders" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewMustBeTopLevelFunction" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewNeedsComposableAnnotation" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m    <inspection_tool class="PreviewPickerAnnotation" enabled="true" level="ERROR" enabled_by_default="true">[m
+[32m+[m[32m      <option name="composableFile" value="true" />[m
+[32m+[m[32m      <option name="previewFile" value="true" />[m
+[32m+[m[32m    </inspection_tool>[m
+[32m+[m[32m  </profile>[m
+[32m+[m[32m</component>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/build.gradle.kts b/app/build.gradle.kts[m
+[1mindex 0806058..931b9b8 100644[m
+[1m--- a/app/build.gradle.kts[m
+[1m+++ b/app/build.gradle.kts[m
+[36m@@ -27,23 +27,39 @@[m [mandroid {[m
+             )[m
+         }[m
+     }[m
+[32m+[m
+     compileOptions {[m
+         sourceCompatibility = JavaVersion.VERSION_1_8[m
+         targetCompatibility = JavaVersion.VERSION_1_8[m
+     }[m
+[32m+[m
+     kotlinOptions {[m
+         jvmTarget = "1.8"[m
+     }[m
+ [m
+[31m-    buildFeatures{[m
+[32m+[m[32m    buildFeatures {[m
+[32m+[m[32m        compose = true[m
+         viewBinding = true[m
+     }[m
+[32m+[m
+[32m+[m[32m    composeOptions {[m
+[32m+[m[32m        kotlinCompilerExtensionVersion = "1.5.1"[m
+[32m+[m[32m    }[m
+ }[m
+ [m
+ dependencies {[m
+[31m-[m
+[31m-    implementation (libs.retrofit)[m
+[31m-    implementation (libs.converter.gson)[m
+[32m+[m[32m    implementation (libs.glide)[m
+[32m+[m[32m    annotationProcessor (libs.compiler)[m
+[32m+[m[32m    implementation(libs.androidx.lifecycle.livedata.ktx)[m
+[32m+[m[32m    implementation(libs.androidx.ui)[m
+[32m+[m[32m    implementation(libs.androidx.material)[m
+[32m+[m[32m    implementation(libs.androidx.ui.tooling.preview)[m
+[32m+[m[32m    implementation(libs.androidx.activity.compose)[m
+[32m+[m[32m    implementation(libs.androidx.lifecycle.viewmodel.compose)[m
+[32m+[m[32m    implementation(libs.androidx.lifecycle.viewmodel.ktx)[m
+[32m+[m[32m    implementation(libs.kotlinx.coroutines.android)[m
+[32m+[m[32m    implementation(libs.retrofit)[m
+[32m+[m[32m    implementation(libs.converter.gson)[m
+     implementation(libs.androidx.camera.core)[m
+     implementation(libs.androidx.camera.camera2)[m
+     implementation(libs.androidx.camera.lifecycle)[m
+[36m@@ -53,6 +69,8 @@[m [mdependencies {[m
+     implementation(libs.material)[m
+     implementation(libs.androidx.activity)[m
+     implementation(libs.androidx.constraintlayout)[m
+[32m+[m[32m    implementation(libs.androidx.runtime.livedata)[m
+[32m+[m
+     testImplementation(libs.junit)[m
+     androidTestImplementation(libs.androidx.junit)[m
+     androidTestImplementation(libs.androidx.espresso.core)[m
+[1mdiff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml[m
+[1mindex a48186e..d9161df 100644[m
+[1m--- a/app/src/main/AndroidManifest.xml[m
+[1m+++ b/app/src/main/AndroidManifest.xml[m
+[36m@@ -8,6 +8,7 @@[m
+     <uses-feature android:name="android.hardware.camera.any" />[m
+     <uses-permission android:name="android.permission.INTERNET" />[m
+ [m
+[32m+[m
+     <application[m
+         android:allowBackup="true"[m
+         android:dataExtractionRules="@xml/data_extraction_rules"[m
+[36m@@ -29,9 +30,8 @@[m
+             </intent-filter>[m
+         </activity>[m
+ [m
+[31m-        <activity android:name=".ui.ListActivity"/>[m
+         <activity android:name=".ui.SelectPhotoActivity"/>[m
+[31m-        <activity android:name=".ui.WeatherActivity"/>[m
+[32m+[m[32m        <activity android:name=".ui.weather.WeatherActivity"/>[m
+ [m
+     </application>[m
+ [m
+[1mdiff --git a/app/src/main/java/com/example/myapplication/MainActivity.kt b/app/src/main/java/com/example/myapplication/MainActivity.kt[m
+[1mindex c12493e..62fcfcc 100644[m
+[1m--- a/app/src/main/java/com/example/myapplication/MainActivity.kt[m
+[1m+++ b/app/src/main/java/com/example/myapplication/MainActivity.kt[m
+[36m@@ -7,17 +7,19 @@[m [mimport android.content.pm.PackageManager[m
+ import android.net.Uri[m
+ import android.os.Bundle[m
+ import android.provider.MediaStore[m
+[32m+[m[32mimport android.view.View[m
+ import android.widget.ImageView[m
+ import android.widget.Toast[m
+[32m+[m[32mimport androidx.activity.OnBackPressedCallback[m
+ import androidx.activity.result.contract.ActivityResultContracts[m
+ import androidx.appcompat.app.AppCompatActivity[m
+ import androidx.core.app.ActivityCompat[m
+ import androidx.core.content.ContextCompat[m
+ import com.example.myapplication.data.Preferences[m
+ import com.example.myapplication.databinding.ActivityMainBinding[m
+[31m-import com.example.myapplication.ui.ListActivity[m
+[32m+[m[32mimport com.example.myapplication.ui.ListFragment[m
+ import com.example.myapplication.ui.SelectPhot

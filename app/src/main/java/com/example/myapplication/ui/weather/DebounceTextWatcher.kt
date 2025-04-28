@@ -1,4 +1,4 @@
-package com.example.myapplication.util
+package com.example.myapplication.ui.weather
 
 import android.os.Handler
 import android.os.Looper

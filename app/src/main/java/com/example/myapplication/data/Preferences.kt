@@ -32,6 +32,7 @@ class Preferences(private val context: Context) {
             .putStringSet(PREF_SAVED_PHOTOS, photos)
             .apply()
     }
+
     fun getSavedPhotos(): List<String> {
         val savedPhotos = pref.getStringSet(PREF_SAVED_PHOTOS, emptySet())
         return savedPhotos?.filter { fileExists(it) } ?: emptyList()

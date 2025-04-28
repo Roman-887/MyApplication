@@ -7,17 +7,19 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.myapplication.data.Preferences
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.ui.ListActivity
+import com.example.myapplication.ui.ListFragment
 import com.example.myapplication.ui.SelectPhotoActivity
-import com.example.myapplication.ui.WeatherActivity
+import com.example.myapplication.ui.weather.WeatherActivity
 import java.io.File
 
 
@@ -74,8 +76,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnButtonList.setOnClickListener {
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
+            binding.buttonContainer.visibility = View.GONE
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ListFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.btnButtonSelectPhoto.setOnClickListener {
@@ -88,7 +94,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
     private fun savePhotoPath() {
         val cursor = contentResolver.query(
             Uri.parse(mCurrentPhotoPath),
