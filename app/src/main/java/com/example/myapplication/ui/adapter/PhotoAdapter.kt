@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.R
+import java.io.File
 
 class PhotoAdapter(
     private val context: Context,
@@ -25,9 +27,11 @@ class PhotoAdapter(
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val imagePath = photos[position]
-        val imageUri = Uri.parse(imagePath)
-
-        holder.imageView.setImageURI(imageUri)
+        val imageFile = File(imagePath)
+        val imageUri = Uri.fromFile(imageFile)
+        Glide.with(holder.imageView.context)
+            .load(imageUri)
+            .into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
